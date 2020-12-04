@@ -1,0 +1,7 @@
+name: FastGrant
+version: 1.0
+main: xyz.damt.section.Grant
+author: damt
+description: nice grant api
+commands:
+  grant:

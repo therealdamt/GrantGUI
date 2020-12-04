@@ -1,0 +1,29 @@
+MESSAGES:
+  RANK-UPDATED: "&a%player%'s rank has been updated!"
+
+INVENTORY:
+  SIZE: 54
+  TITLE: "&7Grant API"
+
+RANKS:
+  OWNER:
+    MATERIAL: "WOOL"
+    DATA: 14
+    DISPLAY-NAME: "&cOwner"
+    SLOT: 0
+    LORE:
+      - "&7&m----------------------------------"
+      - "&cLeft click this to apply owner rank!"
+      - "&7&m----------------------------------"
+
+    COMMAND: "pex user %player% group set owner"
+  DEVELOPER:
+    MATERIAL: "WOOL"
+    DATA: 3
+    DISPLAY-NAME: "&b&lDeveloper"
+    SLOT: 1
+    LORE:
+      - "&7&m----------------------------------"
+      - "&bLeft click this to apply developer rank!"
+      - "&7&m----------------------------------"
+    COMMAND: "pex user %player% group set developer"
