@@ -14,27 +14,29 @@ public class GrantCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        if (sender instanceof Player) {
-
-            Player player = (Player) sender;
-
-            if (player.hasPermission("grant.gui")) {
-                if (args.length == 1) {
-                    Grant.getInstance().p = Bukkit.getPlayer(args[0]);
-
-                    if (Grant.getInstance().p != null) {
-                        GrantMenu.applyInventory(player);
-                    } else {
-                        player.sendMessage(Util.chat("&cThat player does not exist!"));
-                    }
-                } else {
-                    player.sendMessage(Util.chat("&c/grant <player>"));
-                }
-            }
-        } else {
+        if (!(sender instanceof Player)) {
             Bukkit.getConsoleSender().sendMessage(Util.chat("&cThis is a player only command!"));
+            return false;
         }
 
+        Player player = (Player) sender;
+
+        if (!player.hasPermission("grant.gui")) {
+            player.sendMessage(Util.chat("&cNo Permission!"));
+            return false;
+        }
+        if (args.length != 1) {
+            player.sendMessage(Util.chat("&c/grant <player>"));
+            return false;
+        }
+
+        Grant.getInstance().p = Bukkit.getPlayer(args[0]);
+
+        if (Grant.getInstance().p == null) {
+            player.sendMessage(Util.chat("&cThat player does not exist!"));
+            return false;
+        }
+        GrantMenu.applyInventory(player);
         return false;
     }
 }

@@ -21,11 +21,7 @@ public class Grant extends JavaPlugin {
         this.getConfig().options().copyDefaults(true);
         this.saveDefaultConfig();
         this.getCommand("grant").setExecutor(new GrantCommand());
-        registerListeners();
-    }
-    private void registerListeners() {
-        PluginManager pm = Bukkit.getPluginManager();
-        pm.registerEvents(new GrantMenu(), this);
+        Bukkit.getPluginManager().registerEvents(new GrantMenu(), this);
     }
 
     public static Grant getInstance() {
