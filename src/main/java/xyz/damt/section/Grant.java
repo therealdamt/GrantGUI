@@ -13,29 +13,19 @@ public class Grant extends JavaPlugin {
     public Player p;
 
     public void onEnable() {
+
+        Bukkit.getConsoleSender().sendMessage(Util.chat("&6&lFastGrant has been enabled!"));
+        Bukkit.getConsoleSender().sendMessage(Util.chat("&6&ldeveloped by damt"));
+
         instance = this;
-        registerAll();
-    }
-    private void registerCommands() {
-        getCommand("grant").setExecutor(new GrantCommand());
+        this.getConfig().options().copyDefaults(true);
+        this.saveDefaultConfig();
+        this.getCommand("grant").setExecutor(new GrantCommand());
+        registerListeners();
     }
     private void registerListeners() {
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new GrantMenu(), this);
-    }
-    private void loadConfig() {
-        this.getConfig().options().copyDefaults(true);
-        this.saveDefaultConfig();
-    }
-    private void loadMessages() {
-        Bukkit.getConsoleSender().sendMessage(Util.chat("&6&lFastGrant has been enabled!"));
-        Bukkit.getConsoleSender().sendMessage(Util.chat("&6&ldeveloped by damt"));
-    }
-    private void registerAll() {
-        loadMessages();
-        loadConfig();
-        registerCommands();
-        registerListeners();
     }
 
     public static Grant getInstance() {
