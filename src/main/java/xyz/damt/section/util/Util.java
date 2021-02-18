@@ -1,4 +1,4 @@
-package xyz.damt.section;
+package xyz.damt.section.util;
 
 import org.bukkit.ChatColor;
 
